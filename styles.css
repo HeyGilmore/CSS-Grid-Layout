@@ -9,6 +9,17 @@ html {
   height: 100%;
   padding: 16px;
   box-sizing: border-box;
+  /* My Answers */
+  display: grid;
+  grid-template: 80px 200px 60px 325px 40px / 140px;
+  background: rgb(211, 212, 228);
+  grid-template-areas:
+    "header header header header"
+    "sidebar nav nav nav"
+    "sidebar article article article"
+    "sidebar article article article"
+    "footer footer footer footer";
+  gap: 15px;
 }
 
 .container div {
@@ -22,22 +33,28 @@ html {
 
 .header {
   background-color: #006157;
+  grid-area: header;
 }
 
 .sidebar {
   background-color: #005b94;
+  grid-area: sidebar;
 }
 
 .nav {
   background-color: #642cde;
+  grid-area: nav;
 }
 
 .article {
   background-color: #7e1dc3;
+  grid-area: article;
+  overflow: auto;
 }
 
 .footer {
   background-color: #393f4d;
+  grid-area: footer;
 }
 
 .article p {
@@ -45,4 +62,17 @@ html {
   font-family: sans-serif;
   color: white;
   text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    grid-template: 80px 200px auto 120px 40px / 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "article"
+      "sidebar"
+      "footer";
+  }
 }
